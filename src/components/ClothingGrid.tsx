@@ -33,48 +33,48 @@ const ClothingGrid = ({ items, onMoveItem, onDeleteItem, currentLocation }: Clot
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-12 text-slate-500">
-        <div className="text-6xl mb-4">👕</div>
-        <p className="text-lg mb-2">No clothing items here yet</p>
-        <p className="text-sm">Add some items to get started!</p>
+      <div className="text-center py-8 md:py-12 text-slate-500">
+        <div className="text-4xl md:text-6xl mb-3 md:mb-4">👕</div>
+        <p className="text-base md:text-lg mb-2">No clothing items here yet</p>
+        <p className="text-xs md:text-sm">Add some items to get started!</p>
       </div>
     );
   }
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
         {items.map((item) => (
           <Card key={item.id} className="hover:shadow-md transition-shadow border-0 shadow-sm">
-            <CardContent className="p-4">
-              <div className="flex justify-between items-start mb-3">
-                <h3 className="font-semibold text-slate-800 text-sm">{item.name}</h3>
-                <div className="flex gap-1">
+            <CardContent className="p-3 md:p-4">
+              <div className="flex justify-between items-start mb-2 md:mb-3">
+                <h3 className="font-semibold text-slate-800 text-sm leading-tight flex-1 mr-2">{item.name}</h3>
+                <div className="flex gap-1 flex-shrink-0">
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => handleMoveClick(item)}
-                    className="h-8 w-8 p-0 hover:bg-blue-100"
+                    className="h-7 w-7 md:h-8 md:w-8 p-0 hover:bg-blue-100"
                   >
-                    <Move size={14} className="text-blue-600" />
+                    <Move size={12} className="text-blue-600 md:size-4" />
                   </Button>
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => onDeleteItem(item.id)}
-                    className="h-8 w-8 p-0 hover:bg-red-100"
+                    className="h-7 w-7 md:h-8 md:w-8 p-0 hover:bg-red-100"
                   >
-                    <Trash size={14} className="text-red-600" />
+                    <Trash size={12} className="text-red-600 md:size-4" />
                   </Button>
                 </div>
               </div>
               
               <div className="space-y-2">
-                <div className="flex gap-2 flex-wrap">
-                  <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-700">
+                <div className="flex gap-1 md:gap-2 flex-wrap">
+                  <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-700 px-2 py-0.5">
                     {item.category}
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs px-2 py-0.5">
                     {item.color}
                   </Badge>
                 </div>
